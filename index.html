@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cybernic — Gizlilik Politikası</title>
+<meta name="description" content="Cybernic mobil oyununun gizlilik politikası.">
 <style>
   :root { color-scheme: dark; }
   body {
@@ -15,41 +16,64 @@
   h1 { color: #00f0ff; font-size: 28px; letter-spacing: 1px; margin-bottom: 4px; }
   h2 { color: #ff2daf; font-size: 19px; margin-top: 38px; }
   h3 { font-size: 16px; color: #ffe83d; margin-top: 26px; }
-  a { color: #00f0ff; }
+  a { color: #00f0ff; word-break: break-word; }
   hr { border: 0; border-top: 1px solid #23284a; margin: 32px 0; }
-  code, .meta { color: #6e7bb8; }
   ul { padding-left: 22px; }
   li { margin: 6px 0; }
   strong { color: #fff; }
+  footer { margin-top: 48px; color: #6e7bb8; font-size: 13px; }
 </style>
 </head>
 <body>
-<main id="content">Yükleniyor…</main>
-<script>
-// Politika metni privacy-policy.md dosyasında tutulur; burada basitçe
-// biçimlendirilerek gösterilir. Tek kaynak: markdown dosyası.
-fetch('privacy-policy.md').then(r => r.text()).then(md => {
-  const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
-  const inline = s => esc(s)
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/<(https?:[^>]+)>/g, '<a href="$1">$1</a>')
-    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>');
-  const out = [];
-  let inList = false;
-  for (const line of md.split('\n')) {
-    const li = line.match(/^- (.*)$/);
-    if (li) { if (!inList) { out.push('<ul>'); inList = true; } out.push('<li>' + inline(li[1]) + '</li>'); continue; }
-    if (inList) { out.push('</ul>'); inList = false; }
-    if (/^### /.test(line)) out.push('<h3>' + inline(line.slice(4)) + '</h3>');
-    else if (/^## /.test(line)) out.push('<h2>' + inline(line.slice(3)) + '</h2>');
-    else if (/^# /.test(line)) out.push('<h1>' + inline(line.slice(2)) + '</h1>');
-    else if (/^---\s*$/.test(line)) out.push('<hr>');
-    else if (line.trim() === '') out.push('');
-    else out.push('<p>' + inline(line) + '</p>');
-  }
-  if (inList) out.push('</ul>');
-  document.getElementById('content').innerHTML = out.join('\n');
-});
-</script>
+<main>
+<h1>Cybernic — Gizlilik Politikası</h1>
+<p><strong>Son güncelleme:</strong> 20 Ağustos 2026 <strong>Geliştirici:</strong> BurcilGames <strong>İletişim:</strong> ilkeryilmam@gmail.com</p>
+<p>Bu politika, <strong>Cybernic</strong> adlı mobil oyunun kişisel verilerle nasıl davrandığını açıklar. Oyunu indirip kullanarak burada anlatılanları kabul etmiş olursunuz.</p>
+<hr>
+<h2>Kısaca</h2>
+<p>Cybernic <strong>sizden hiçbir kişisel bilgi istemez.</strong> Üyelik yok, kullanıcı adı yok, e-posta yok. Oyun ilerlemeniz yalnızca kendi cihazınızda saklanır.</p>
+<p>Yalnızca iki dış hizmet devrede: reklam gösterimi için <strong>Google AdMob</strong> ve satın alma işlemleri için <strong>Apple App Store</strong>. Aşağıda bunların ne topladığı anlatılıyor.</p>
+<hr>
+<h2>1. Bizim topladığımız veriler</h2>
+<p><strong>Hiçbiri.</strong> Sunucumuz yok, hesabınız yok, bize ulaşan hiçbir veri yok.</p>
+<h2>2. Cihazınızda saklananlar</h2>
+<p>Aşağıdakiler <strong>yalnızca telefonunuzda</strong> tutulur, hiçbir yere gönderilmez ve uygulamayı silince kaybolur:</p>
+<ul>
+<li>Kaçıncı bölümde olduğunuz ve tamamladığınız bölümler</li>
+<li>Yıldızlarınız ve puanınız</li>
+<li>Kalan can, ipucu ve joker haklarınız</li>
+<li>Ses ve müzik tercihleriniz</li>
+<li>Premium satın alıp almadığınız</li>
+</ul>
+<h2>3. Reklamlar (Google AdMob)</h2>
+<p>Oyun, ücretsiz sürümde ödüllü reklamlar gösterir. Reklamları <strong>Google AdMob</strong> sağlar ve Google reklam gösterimi için bazı verilere erişebilir:</p>
+<ul>
+<li>Reklam kimliği (IDFA) — cihaza özel, sıfırlanabilir bir numara</li>
+<li>Cihaz modeli, işletim sistemi sürümü, yaklaşık konum (ülke/şehir düzeyinde)</li>
+<li>Reklamla etkileşiminiz (görüntüleme, tıklama)</li>
+</ul>
+<p>Google&#x27;ın bu verileri nasıl kullandığı: <a href="https://policies.google.com/technologies/partner-sites">https://policies.google.com/technologies/partner-sites</a></p>
+<h3>İzleme izni</h3>
+<p>iOS&#x27;ta uygulama ilk açıldığında <strong>izleme izni</strong> sorulur. İzin vermezseniz size kişiselleştirilmiş reklam gösterilmez; reklamlar yine çıkar ama ilgi alanlarınıza göre seçilmez. Bu tercihi istediğiniz zaman <strong>Ayarlar → Gizlilik ve Güvenlik → İzleme</strong> üzerinden değiştirebilirsiniz.</p>
+<h3>Reklamları tamamen kaldırmak</h3>
+<p>Premium sürümü satın alırsanız reklam gösterilmez ve AdMob devre dışı kalır.</p>
+<h2>4. Satın almalar (Apple)</h2>
+<p>Premium satın alma işlemi tamamen <strong>Apple</strong> üzerinden yürür. Ödeme bilgileriniz bize hiçbir zaman ulaşmaz; kart bilgilerinizi görmeyiz ve saklamayız. Apple bize yalnızca satın almanın gerçekleşip gerçekleşmediğini bildirir.</p>
+<p>Apple&#x27;ın gizlilik politikası: <a href="https://www.apple.com/legal/privacy/">https://www.apple.com/legal/privacy/</a></p>
+<h2>5. Çocuklar</h2>
+<p>Cybernic belirli bir yaş grubuna yönelik değildir ve bilerek 13 yaşın altındaki kullanıcılardan veri toplamaz. Çocuğunuzun verisiyle ilgili bir endişeniz varsa bize yazın, gereğini yaparız.</p>
+<h2>6. Haklarınız (KVKK / GDPR)</h2>
+<p>Size ait bir veri tutmadığımız için silinecek bir kaydımız da yok. Yine de:</p>
+<ul>
+<li><strong>Cihazınızdaki verileri silmek:</strong> Uygulamayı kaldırmanız yeterli.</li>
+<li><strong>Reklam kimliğinizi sıfırlamak:</strong> Ayarlar → Gizlilik ve Güvenlik → İzleme</li>
+<li><strong>Soru sormak:</strong> ilkeryilmam@gmail.com adresine yazabilirsiniz.</li>
+</ul>
+<h2>7. Değişiklikler</h2>
+<p>Bu politika değişirse bu sayfa güncellenir ve yukarıdaki tarih değiştirilir. Önemli bir değişiklik olursa uygulama içinde de duyurulur.</p>
+<h2>8. İletişim</h2>
+<p><strong>ilkeryilmam@gmail.com</strong></p>
+</main>
+<footer>© 2026 BurcilGames</footer>
 </body>
 </html>
